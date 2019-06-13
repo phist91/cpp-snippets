@@ -1,0 +1,42 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (2)}
+\rohead{22.12.2018}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+Um die Aufgaben zu bearbeiten und die eigenen Lösungen zu überprüfen, bietet es sich an, eine Funktion zu benutzen, die den Inhalt eines Arrays auf der Konsole ausgibt.
+Zum Beispiel folgende:
+
+\inputminted{cpp}{printArray.cpp}
+
+\textbf{Aufgabe 1.} \\
+Implementieren Sie eine Funktion \mintinline{cpp}{compareArray(int* a, int* b, int length)}, die zwei gleich lange Arrays \texttt{a} und \texttt{b} sowie ihre Länge \texttt{length} entgegennimmt.
+Sie soll \mintinline{cpp}{true} zurückgeben, wenn beide Arrays identisch sind, andernfalls \mintinline{cpp}{false}.
+
+\textbf{Aufgabe 2.} \\
+Was leistet die folgende Funktion?
+Betrachten Sie den Aufruf \mintinline{cpp}{psum(a,5)} für das Array \texttt{a = [5, 11, -2, 6, -8, 42]} und geben Sie für jede Iteration der \mintinline{cpp}{for}-Schleife den Inhalt von \mintinline{cpp}{result} an.
+
+\inputminted{cpp}{psum.cpp}
+
+\textbf{Aufgabe 3.} \\
+Implementieren Sie eine Funktion \mintinline{cpp}{zip(int* a, int* b, int length)}, die zwei gleich lange Arrays \texttt{a} und \texttt{b} sowie ihre Länge \texttt{length} entgegennimmt.
+Sie soll ein Array zurückgeben\footnote{Hiermit ist ein Pointer auf den Beginn des Arrays gemeint. Der Rückgabetyp ist also \texttt{int*}.}, das abwechselnd die Elemente von \texttt{a} und \texttt{b} enthält. \\
+\textit{Beispiel:} Ist \texttt{a = [1, 2, 3, 4, 5]} und \texttt{b = [32, 33, 34, 35, 36]}, so soll die Funktion das Array \linebreak \texttt{[1, 32, 2, 33, 3, 34, 4, 35, 5, 36]} zurückliefern.
+
+\newpage
+\textbf{Aufgabe 4.}
+\begin{enumerate}[a)]
+	\item Implementieren Sie eine Funktion \mintinline{cpp}{count(int* a, int length, int x)}, die ein Array \texttt{a} sowie seine Länge \texttt{length} und eine weitere Zahl \texttt{x} entgegennimmt.
+	Die Funktion soll zurückgeben, wie oft \texttt{x} in \texttt{a} vorkommt. \\
+	\textit{Beispiel:} Ist \texttt{a = [32, 17, 1, -5, 8, 17]}, so soll \mintinline{cpp}{count(a,6,17)} das Ergebnis \texttt{2} liefern.
+	\item Implementieren Sie eine Funktion \mintinline{cpp}{filter(int* a, int length, int x)}, die ein Array \texttt{a} sowie seine Länge \texttt{length} und eine weitere Zahl \texttt{x} entgegennimmt.
+	Die Funktion soll ein Array zurückgeben, das alle Elemente von \texttt{a} enthält, die nicht \texttt{x} sind (in der gleichen Reihenfolge). \\
+	\textit{Beispiel:} Ist \texttt{a} wie oben, so soll \mintinline{cpp}{filter(a,6,17)} das Array \texttt{[32, 1, -5, 8]} zurückgeben. \\
+	\textbf{Hinweis:} Nutzen Sie die Funktion \texttt{count} aus Aufgabenteil a), um die Länge des resultierenden Arrays zu bestimmen.
+\end{enumerate}
+\end{document}
