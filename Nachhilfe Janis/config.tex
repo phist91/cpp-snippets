@@ -1,0 +1,156 @@
+\documentclass[%
+	paper=a4,
+	fontsize=\setfontsize,
+	ngerman
+	]{scrartcl}
+
+% Basics für Codierung und Sprache
+% ===========================================================
+	\usepackage{scrtime}
+	\usepackage{etex}
+	\usepackage{shellesc}
+	\usepackage[final]{graphicx}
+	\usepackage[utf8]{inputenc}
+	\usepackage{babel}
+	\usepackage[german=quotes]{csquotes}
+% ===========================================================
+
+% Fonts und Typographie
+% ===========================================================
+	\usepackage{sourcecodepro}
+	\usepackage[default]{sourcesanspro}
+	\usepackage{nimbusmononarrow}
+	
+	\usepackage[babel=true,final,tracking=smallcaps]{microtype}
+	\DisableLigatures{encoding = T1, family = tt* } % keine Ligaturen für Monospace-Fonts
+	\usepackage{ellipsis}
+% ===========================================================
+
+% Farben
+% ===========================================================
+	\usepackage[usenames,x11names,final]{xcolor}
+	\definecolor{fbblau}{HTML}{3078AB}
+	\definecolor{mediumgray}{gray}{.65}
+	\definecolor{blackberry}{rgb}{0.53, 0.0, 0.25}
+% ===========================================================
+
+% Mathe-Pakete und -Einstellungen
+% ===========================================================
+	\usepackage{mathtools}
+	\usepackage{amssymb}
+	\usepackage[bigdelims]{newtxmath}		% moderne Mathe-Font
+	\allowdisplaybreaks						% seitenübergreifende Rechnungen
+	\input{../MathCmds.tex}
+	\usepackage{bm}
+	\usepackage{wasysym}
+% ===========================================================
+
+% TikZ
+% ===========================================================
+	\usepackage{tikz}
+	\usepackage{tikz-cd}					% kommutative Diagramme
+	\usetikzlibrary{arrows.meta}			% mehr Pfeile!
+	\usetikzlibrary{shadows}
+	\usetikzlibrary{calc}
+	\tikzset{>=Latex}						% Standard-Pfeilspitze
+% ===========================================================
+
+% Seitenlayout, Kopf-/Fußzeile
+% ===========================================================
+	\usepackage{scrpage2}
+	\pagestyle{scrheadings}
+	\usepackage[top=3cm, bottom=3cm, left=2.5cm, right=2cm]{geometry}
+	\clearscrheadfoot 
+	\setheadsepline{0.4pt} 					% Linie in Kopfzeile
+	\setfootsepline{0.4pt}
+	\automark[section]{section}				% Abschnittstitel in Kopfzeile
+	\setkomafont{pagehead}{\bfseries}
+	\setkomafont{pagefoot}{\normalfont\footnotesize}
+	\cfoot{\thepage}
+	\raggedbottom
+	\usepackage{setspace}					
+	\onehalfspacing							% Zeilenabstand 1.5-fach
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{0.5\baselineskip}
+	\usepackage[all]{nowidow}
+% ===========================================================
+
+% Hyperref
+% ===========================================================
+	\usepackage[%
+		hidelinks,
+		pdfpagelabels,
+		bookmarksopen=true,
+		bookmarksnumbered=true,
+		linkcolor=black,
+		urlcolor=SkyBlue2,
+		plainpages=false,
+		pagebackref,
+		citecolor=black,
+		hypertexnames=true,
+		pdfauthor={Phil Steinhorst},
+		pdfborderstyle={/S/U},
+		linkbordercolor=SkyBlue2,
+		colorlinks=false,
+		backref=false]{hyperref}
+	\hypersetup{final}
+% ===========================================================
+
+% Listen und Tabellen
+% ===========================================================
+	\usepackage{multicol}
+	\usepackage[shortlabels]{enumitem}
+	\setlist{itemsep=0pt}
+	\setlist[enumerate]{font=\sffamily\bfseries}
+	\setlist[itemize]{label=$\triangleright$}
+	\usepackage{tabularx}
+% ===========================================================
+
+% Zu Testzwecken
+% ===========================================================
+	\usepackage{lipsum}
+% ===========================================================
+
+% Rechnerstrukturenquatsch
+% ===========================================================
+	\usepackage{karnaughmap}
+% ===========================================================
+
+% ntheorem
+% ===========================================================
+	\usepackage[amsmath]{ntheorem}
+	
+	\theoremstyle{default}
+	\theoremseparator{.}
+	\theorembodyfont{\normalfont}
+	\theorempreskip{2em}
+	\theorempostskip{2em}
+	\newtheorem{aufg}{Aufgabe}
+
+% minted
+% ===========================================================
+\usepackage{minted}
+\setminted{%
+	style=bw,
+	fontsize=\normalsize,
+	breaklines,
+	breakanywhere=false,
+	breakbytoken=false,
+	breakbytokenanywhere=false,
+	breakafter={.,},
+	autogobble,
+	numbersep=3mm,
+	tabsize=4,
+	frame=lines
+}
+\setmintedinline{%
+	style=bw,
+	fontsize=\normalsize,
+	numbers=none,
+	numbersep=12pt,
+	tabsize=4,
+	%bgcolor=gray!15,
+}
+
+\usepackage[tikz]{mdframed}
+\newcommand{\code}[1]{\texttt{#1}}

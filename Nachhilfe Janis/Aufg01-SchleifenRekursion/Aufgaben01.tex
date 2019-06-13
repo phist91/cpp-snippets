@@ -1,0 +1,31 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (1)}
+\rohead{27.11.2018}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+\begin{enumerate}[1.]
+	\item \begin{enumerate}[a)]
+		\item Schreiben Sie eine C++-Funktion \code{summe}, die eine positive Zahl \code{k} entgegennimmt und die Summe $1 + 2 + 3 + \dots + k$ zurückgibt.
+		\item Schreiben Sie eine Funktion \code{summe}, die eine positive Zahl \code{k} entgegennimmt und die Summe $1^2 + 2^2 + 3^2 + \dots + k^2$ zurückgibt.
+		\item Schreiben Sie eine Funktion \code{summe}, die eine positive, gerade Zahl \code{k} entgegennimmt und die Summe $1 + 2 + 3 + \dots + \frac{k}{2}$ zurückgibt.
+		\item Schreiben Sie eine Funktion \code{summe}, die eine positive Zahl \code{k} entgegennimmt und die Summe $1 - 2 + 3 - 4 + \dots \pm k$ zurückgibt.
+	\end{enumerate}
+	\item \begin{enumerate}[a)]
+		\item Schreiben Sie eine Funktion \code{max}, die zwei ganze Zahlen entgegennimmt und die größere der beiden Zahlen zurückgibt.
+		\item Schreiben Sie eine Funktion \code{modulo}, die zwei positive, ganze Zahlen entgegennimmt und den Divisionsrest zurückgibt, der entsteht, wenn die größere durch die kleinere Zahl geteilt wird.
+		\item Schreiben Sie eine Funktion \code{ggT}, die den größten gemeinsamen Teiler zweier positiver Zahlen berechnet. Der größte gemeinsame Teiler von $a$ und $b$ ist dabei wie folgt definiert:
+		\[
+			\operatorname{ggT}(a,b) = \begin{cases}
+				a, & \text{falls } b = 0, \\
+				b, & \text{falls } a = 0, \\
+				\operatorname{ggT}(a \bmod b, b), & \text{falls } a \geq b, \\
+				\operatorname{ggT}(a, b \bmod a), & \text{falls } b > a.
+			\end{cases}
+		\]
+	\end{enumerate}	
+\end{enumerate}
+\end{document}
