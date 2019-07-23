@@ -1,0 +1,48 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{10pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (7)}
+\rohead{13.03.2019}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+In dieser Aufgabe soll mithilfe von C++ eine \textbf{Notenliste} für den Schuldienst realisiert werden.
+Eine Notenliste enthält für jeden eingetragenen Schüler genau eine Note.
+Die Zuweisung von Noten an Schülern soll dabei mit einer Map realisiert werden.
+
+\begin{center}
+	\includegraphics[keepaspectratio,scale=0.6]{notenliste.pdf}
+\end{center}
+
+\begin{enumerate}
+	\item Realisieren Sie zunächst die Enumeration \code{Note} in einer eigenen Header-Datei.
+	Fertigen Sie anschließend Header-Dateien für die Klassen \code{Schueler} und \code{Notenliste} an.
+	\item Implementieren Sie die Klasse \code{Schueler}.
+	Der Operator \code{<} soll dabei so realisiert werden, dass Schüler anhand ihres Namens verglichen werden.
+	\item Implementieren Sie die Klasse \code{Notenliste}:
+	\begin{itemize}
+		\item Der einzige Konstruktor setzt den Namen des Kurses und legt eine leere Map an.
+		\item Die Methode \code{add} fügt einen Schüler und seine Note in die Notenliste ein.
+		Ein eventuell schon vorhandener Wert soll dabei überschrieben werden.
+		\item Die Methode \code{remove} entfernt einen Schüler und seine Note aus der Notenliste.
+		Wenn der angegebene Schüler nicht in der Notenliste auftaucht, soll nichts geschehen.
+		\item Die Methode \code{hatNote} soll \code{true} zurückgeben, wenn der Schüler in der Notenliste auftaucht.
+		\item Die Methode \code{getNote} liefert die Note eines eingetragenen Schülers.
+		\item Die Methode \code{getName} liefert den Kursnamen.
+		\item Die Methode \code{ausgabe} gibt die Notenliste auf der Konsole aus, indem pro Zeile ein Schüler der Notenliste und seine Note ausgegeben werden.
+		\item Die Methode \code{size} liefert die Anzahl der Einträge in der Notenliste.
+		\item Die Methode \code{durchschnitt} liefert die Durchschnittsnote alle Schüler der Notenliste.
+		\item Die Methode \code{getSchuelerByNote} bekommt eine Note übergeben und liefert einen Pointer auf einen Vektor zurück.
+		Dieser enthält alle Schüler der Notenliste, die die angegebene Note besitzen.
+	\end{itemize} \newpage
+	\item Implementieren Sie -- außerhalb der Klasse \code{Notenliste} -- eine Funktion
+	\begin{center}
+		\code{map<string,Note>* alleNoten(const vector<Notenliste>\& listen, const Schueler\& pSchueler)}
+	\end{center}
+	Diese bekommt einen Vektor mit Notenlisten sowie einen Schüler übergeben.
+	Zurückgegeben werden soll ein Pointer auf eine Map.
+	Diese enthält für jede Notenliste des Vektors, in der der Schüler vorhanden ist, einen Eintrag bestehend aus dem Kursnamen sowie der Note.
+\end{enumerate}
+\end{document}
