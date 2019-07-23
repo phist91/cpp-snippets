@@ -4,7 +4,7 @@
 #include <string>
 
 class DVD{
-private:
+protected:
     std::string titel;
     int laufzeit;
     int FskAlter;
@@ -19,7 +19,7 @@ public:
 
     // Getter / Setter
     void setTitel(std::string pTitel);
-    std::string getTitel() const;
+    virtual std::string getTitel() const;
     void setLaufzeit(int pLaufzeit);
     int getLaufzeit() const;
     void setFskAlter(int pAlter);

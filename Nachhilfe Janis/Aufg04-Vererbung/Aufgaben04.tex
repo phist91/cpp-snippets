@@ -1,0 +1,28 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (4)}
+\rohead{11.02.2019}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+Zusätzlich zur Klasse \code{DVD} soll eine Unterklasse \code{ActionDVD} nach folgendem Klassendiagramm realisiert werden:
+\begin{center}
+	\includegraphics[keepaspectratio,scale=0.7]{actiondvd-uml.pdf}
+\end{center}
+
+Eine Action-DVD zeichnet sich dadurch aus, dass ihre Altersbeschränkung stets bei 18 Jahren liegt und sie eventuell als jugendgefährdend indiziert ist.
+\begin{enumerate}
+	\item Erstellen Sie zu obigem Klassendiagramm die Klassendefinition von \code{ActionDVD} in einer separaten Schnittstellendatei \code{ActionDVD.h} und passen Sie die Klassendefinition von \code{DVD} so an, dass alle Attribute vererbt werden.
+	Achten Sie darauf, dass ein mehrfaches Einbinden von \code{ActionDVD.h} verhindert wird.
+	\item Implementieren Sie den Konstruktor der Klasse \code{ActionDVD}. Dieser nimmt Titel, Laufzeit und Indizierungsstatus (wahr oder falsch) entgegen.
+	\item Ergänzen Sie die Klasse \code{ActionDVD} um eine Methode \code{getTitel}. Diese soll Folgendes leisten:
+	\begin{itemize}
+		\item Ist die Action-DVD nicht indiziert, soll der Titel gefolgt vom Hinweis \textit{(Keine Jugendfreigabe)} zurückgegeben werden.
+		\item Ist die Action-DVD indiziert, soll der Titel gefolgt vom Hinweis  \textit{(als jugendgefährdend eingestuft)} zurückgegeben werden.
+	\end{itemize}
+	Nehmen Sie nötige Anpassungen in der Klasse \code{DVD} vor.
+\end{enumerate}
+\end{document}
