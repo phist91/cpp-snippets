@@ -1,0 +1,33 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (5)}
+\rohead{18.02.2019}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+Betrachten Sie das folgende UML-Klassendiagramm zur Realisierung von Punkten im zweidimensionalen Raum mit ganzzahligen Koordinaten:
+\begin{center}
+	\includegraphics[keepaspectratio,scale=0.7]{punktint-uml.pdf}
+\end{center}
+
+\begin{enumerate}
+	\item Erstellen Sie zu obigem Klassendiagramm die Klassendefinition von \code{PunktInt} in einer separaten Schnittstellendatei \code{PunktInt.h}.
+	Achten Sie darauf, dass ein mehrfaches Einbinden von \code{PunktInt.h} verhindert wird.
+	\item Implementieren Sie den ersten Konstruktor der Klasse \code{PunktInt}. Dieser nimmt zwei \code{int}-Zahlen entgegen, die die Koordinaten des Punktes festlegen.
+	\item Implementieren Sie den Kopierkonstruktor. Verwenden Sie dafür den zuerst implementierten Konstruktor.
+	\item Implementieren Sie die beiden Getter-Methoden \code{getXpos} und \code{getYpos}.
+	\item Implementieren Sie die Methode \code{distance}, die die Entfernung des Punktes mit den Koordinaten $(\code{xpos}, \code{ypos})$ zum Ursprung $(0,0)$ berechnet.
+	
+	\textbf{Hinweis:} Die Wurzel einer Zahl kann mit der Methode \code{sqrt} aus der Bibliothek \code{cmath} berechnet werden.
+	\item Implementieren Sie die Methode \code{toString}, die für einen Punkt $(x,y)$ die Stringdarstellung \code{(x,y)} zurückgibt.
+	
+	\textbf{Hinweis:} Die Methode \code{std::to\_string} wandelt Zahlen in Strings um.
+	\item Überladen Sie den Operator \code{+}. Die Summe zweier Punkte $(a,b)$ und $(x,y)$ ist dabei ein neuer Punkt mit den Koordinaten $(a+x,b+y)$.
+	\item Ergänzen Sie jede Methode um das Schlüsselwort \code{const}, wo dies sinnvoll erscheint.
+	\item Angenommen, Sie möchten nun eine Klasse \code{PunktDouble} erstellen, die dieselbe Funktionalität wie \code{PunktInt} bereitstellt, aber Punkte mit Koordinaten vom Typ \code{double} realisiert.
+	An welchen Stellen unterscheidet sich diese Klasse von der Klasse \code{PunktInt}? Wie sieht es aus, wenn Sie eine Klasse \code{PunktFloat} realisieren?
+\end{enumerate}
+\end{document}
