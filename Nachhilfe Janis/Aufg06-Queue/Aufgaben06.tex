@@ -1,0 +1,72 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (6)}
+\rohead{25.02.2019}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+Eine \textbf{Warteschlange} (engl. \textit{queue}) ist eine Datenstruktur, die aus einzelnen Knoten (engl. \textit{node}) besteht.
+Jeder Knoten besitzt einen Wert eines fest gewählten Datentypen und einen Verweis auf den nächsten Knoten in der Warteschlange.
+Die Besonderheit einer Warteschlange ist, dass ausschließlich auf den vordersten Knoten zugegriffen werden kann.
+Neue Knoten werden stets hinter den letzten Knoten der Schlage angehängt. 
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.8,every node/.style={scale=0.8}]
+		%\draw[gray] (0,2) grid (14,-3);
+		\draw [very thick] (0,0) rectangle (2.5,2);
+		\draw (1.25,1.5) node{\textbf{Queue}};
+		\draw (0,0) node[anchor=south west,align = left]{length = 4 \\ first = };
+		
+		\draw [very thick] (3,-0.5) rectangle (5,-2.5);
+		\draw (4,-1) node[font=\small]{\textbf{QueueNode}};
+		\draw (3,-2.5) node[font=\small,anchor=south west,align = left]{data = 42 \\ next = };
+		
+		\draw [very thick] (6,-0.5) rectangle (8,-2.5);
+		\draw (7,-1) node[font=\small]{\textbf{QueueNode}};
+		\draw (6,-2.5) node[font=\small,anchor=south west,align = left]{data = 13 \\ next = };
+		
+		\draw [very thick] (9,-0.5) rectangle (11,-2.5);
+		\draw (10,-1) node[font=\small]{\textbf{QueueNode}};
+		\draw (9,-2.5) node[font=\small,anchor=south west,align = left]{data = 37 \\ next = };
+		
+		\draw [very thick] (12,-0.5) rectangle (14,-2.5);
+		\draw (13,-1) node[font=\small]{\textbf{QueueNode}};
+		\draw (12,-2.5) node[font=\small,anchor=south west,align = left]{data = 249 \\ next = $\emptyset$ };
+		
+		\draw[->,thick] (1.1,0.3) -- (4,0.3) -- (4,-0.5);
+		\draw[->,thick] (4.1,-2.2) -- (5.2,-2.2) -- (5.2,-1) -- (6,-1);
+		\draw[->,thick] (7.1,-2.2) -- (8.2,-2.2) -- (8.2,-1) -- (9,-1);
+		\draw[->,thick] (10.1,-2.2) -- (11.2,-2.2) -- (11.2,-1) -- (12,-1);
+	\end{tikzpicture}
+\end{center}
+
+
+In dieser Aufgabe soll eine Warteschlange für beliebige Datentypen implementiert werden.
+Dafür sind folgende Klassendiagramme gegeben:
+
+\begin{center}
+	\includegraphics[keepaspectratio,scale=0.6]{Queue-uml.pdf}
+\end{center}
+
+\begin{enumerate}
+	\item Implementieren Sie das Klassendiagramm der generischen Klasse \code{QueueNode}, mit welcher die Knoten einer Warteschlange realisiert werden.
+	\begin{itemize}
+		\item Der Konstruktor zur Erzeugung eines neuen Knotens erhält den im Knoten zu speichernden Wert. Der Nachfolger eines neuen Knotens ist zunächst nicht definiert.
+		\item Die Methode \code{hasNext} gibt \code{true} zurück, falls ein Knoten einen Nachfolger besitzt.
+	\end{itemize}
+	\item Implementieren Sie das Klassendiagramm der generischen Klasse \code{Queue}, indem Sie Ihre Implementation von \code{QueueNode} nutzen.
+	\begin{itemize}
+		\item Der erste Konstruktor erzeugt eine neue Warteschlange ohne Elemente.
+		\item Der zweite Konstruktor setzt zusätzlich den übergebenen Wert als ersten Wert der Schlange.
+		\item Die Methode \code{add} fügt den übergebenen Wert ans Ende der Schlange ein.
+		\item Die Methode \code{getFirst} liefert den ersten Wert der Schlange.
+		\item Die Methode \code{remove} entfernt zusätzlich den ersten Wert aus der Schlage.
+	\end{itemize}
+	\item Erstellen Sie eine \code{main}-Methode, in der Sie eine Warteschlange für \code{int}-Werte erstellen.
+	Fügen Sie ein paar Werte in die Warteschlange ein.
+	Geben Sie anschließend alle Werte in der Warteschlange auf der Konsole aus.
+\end{enumerate}
+\end{document}
