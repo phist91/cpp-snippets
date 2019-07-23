@@ -2,8 +2,8 @@ int max(int a, int b){
     if (a > b)
         return a;
     return b;
-	
-	// als Einzeiler: return (a > b) ? a : b;
+    
+    // als Einzeiler: return (a > b) ? a : b;
 }
 
 int modulo(int a, int b){

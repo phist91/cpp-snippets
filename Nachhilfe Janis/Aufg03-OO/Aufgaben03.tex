@@ -1,0 +1,39 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+\newcommand{\setfontsize}{11pt}
+\input{../config.tex}
+\lohead{C++-Übungsaufgaben (3)}
+\rohead{04.02.2019}
+\rofoot{\jobname.tex}
+\lofoot{}
+\begin{document}
+
+In dieser Aufgabe soll ein Datentyp \code{DVD} modelliert werden, um auf DVDs gespeicherte Spielfilme darstellen zu können. Gegeben ist dazu folgendes UML-Diagramm:
+
+\begin{center}
+	\includegraphics[keepaspectratio,scale=0.7]{dvd-uml.pdf}
+\end{center}
+
+\begin{enumerate}
+	\item Erstellen Sie zu obigem Klassendiagramm eine Klassendefinition in C++ in einer separaten Schnittstellendatei \code{DVD.h}.
+	Achten Sie darauf, dass ein mehrfaches Einbinden dieser Datei verhindert wird.
+	\item Implementieren Sie die folgenden Methoden in einer C++-Datei \code{DVD.cpp}:
+	\begin{enumerate}[(a)]
+		\item Implementieren Sie den ersten Konstruktor. Dieser erhält als Parameter den Titel des Spielfilms, seine Laufzeit in Minuten und die Altersbeschränkung in Jahren, ab der der Film für Kinder und Jugendliche freigegeben ist.
+		Verwenden Sie eine Initialisierungsliste, wenn möglich.
+		\item Implementieren Sie den Kopierkonstruktor. Verwenden Sie eine Initialisierungsliste, wenn möglich.
+		\item Implementieren Sie die Methoden \code{freiFuerKinder} und \code{istKurzfilm}. \code{freiFuerKinder} soll \code{true} zurückliefern, wenn die Altersbeschränkung maximal bei 6 Jahren liegt. \code{istKurzfilm} soll \code{true} zurückgeben, wenn die Spielzeit des Films maximal bei 40 Minuten liegt.
+		\item Erstellen Sie Getter- und Setter-Methoden für alle drei Attribute.
+	\end{enumerate}
+	\item Ergänzen Sie alle Parameter und Methoden um das Schlüsselwort \code{const}, wo dies sinnvoll erscheint.
+	\item Manchmal sollen zwei Spielfilme, die bereits auf DVD erschienen sind, gemeinsam auf einer neuen DVD veröffentlicht werden.
+	Dies soll mithilfe des Operators \code{+} realisiert werden.
+	Überladen Sie den Operator \code{+}, um zwei \code{DVD}-Objekte addieren zu können. Die Summe zweier \code{DVD}-Objekte ist ein neues \code{DVD}-Objekt mit folgenden Eigenschaften:
+	\begin{itemize}
+		\item Die Laufzeit der neuen DVD ist die Summe der Laufzeiten der beiden ursprünglichen DVDs.
+		\item Die Altersbeschränkung ist das Maximum der Altersbeschränkungen der beiden ursprünglichen DVDs.
+		\item Besitzt \code{dvd1} den Titel \enquote{Film 1} und \code{dvd2} den Titel \enquote{Film 2}, so besitzt \code{dvd1 + dvd2} den Titel \enquote{Film 1 und Film 2}.
+	\end{itemize} 
+	\item Erzeugen Sie in einer \code{main}-Methode zwei beliebige \code{DVD}-Objekte und addieren Sie sie. Geben Sie anschließend Titel, Laufzeit und Altersbeschränkung der addierten \code{DVD}-Objekte aus.
+\end{enumerate}
+\end{document}
